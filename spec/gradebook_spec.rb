@@ -60,4 +60,21 @@ RSpec.describe Gradebook do
             expect(instructor.students_below(calculus, 70)).to eq([student2, student3])
         end
     end
+
+    describe 'all_grades' do
+        it 'tracks all grades for course {hash}. Key: Course => Grades' do
+            instructor = Gradebook.new("Sally Teacher")
+            calculus = Course.new("Calculus", 2)
+            student1 = Student.new(name: 'Jacob', age: 22)
+            student2 = Student.new(name: 'John', age: 22)
+            student3 = Student.new(name: 'Jill', age: 22)
+            calculus.enroll(student1)
+            calculus.enroll(student2)
+            calculus.enroll(student3)
+            student1.logged_score(90)
+            student2.logged_score(60)
+            student3.logged_score(68)
+            expect(instructor.all_grades(calculus)).to eq({Course: [90, 60, 68]})
+        end
+    end
 end

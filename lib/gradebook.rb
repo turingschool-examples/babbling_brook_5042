@@ -18,4 +18,11 @@ class Gradebook
             student.grade < threshold
         end
     end
+
+    def all_grades(course)
+        grades = course.students.map do |student|
+            student.grade
+        end
+        {Course: grades}
+    end
 end
