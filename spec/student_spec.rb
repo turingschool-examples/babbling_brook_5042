@@ -24,5 +24,13 @@ RSpec.describe Student do
             student.logged_score(90)
             expect(student.scores).to eq([90])
         end
+
+        it 'logs multiple scores' do
+            student = Student.new(name: 'Jacob', age: 22)
+            student.logged_score(90)
+            student.logged_score(80)
+            student.logged_score(70)
+            expect(student.scores).to eq([90, 80, 70])
+        end
     end
 end
