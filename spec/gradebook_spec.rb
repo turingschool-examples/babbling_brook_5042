@@ -77,4 +77,27 @@ RSpec.describe Gradebook do
             expect(instructor.all_grades(calculus)).to eq({Course: [90, 60, 68]})
         end
     end
+
+    describe 'students_in_range(min, max)' do
+        it 'lists students in range' do
+            instructor = Gradebook.new("Sally Teacher")
+            calculus = Course.new("Calculus", 2)
+            student1 = Student.new(name: 'Jacob', age: 22)
+            student2 = Student.new(name: 'John', age: 22)
+            student3 = Student.new(name: 'Jill', age: 22)
+            student4 = Student.new(name: 'Jane', age: 22)
+            student5 = Student.new(name: 'Jack', age: 22)
+            calculus.enroll(student1)
+            calculus.enroll(student2)
+            calculus.enroll(student3)
+            calculus.enroll(student4)
+            calculus.enroll(student5)
+            student1.logged_score(90)
+            student2.logged_score(60)
+            student3.logged_score(70)
+            student4.logged_score(80)
+            student5.logged_score(55)
+            expect(instructor.students_in_range(calculus, 70, 90)).to eq([student1, student3, student4])
+        end
+    end
 end
