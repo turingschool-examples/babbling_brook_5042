@@ -22,8 +22,8 @@ RSpec.describe Course do
 
   it 'can add students' do
     course = Course.new("Calculus", 2)
-    student1 = Student.new({name: "Morgan", age: 21})
-    student2 = Student.new({name: "Jordan", age: 29})
+    student1 = Student.new("Morgan", 21)
+    student2 = Student.new("Jordan", 33)
     course.enroll(student1)
     course.enroll(student2)
     expect(course.students).to include(student1, student2)
