@@ -1,10 +1,10 @@
 require './lib/student'
 
-def initialize(student)
-  @student = student
-    puts "student"
-    
-  end
+class Student
+   def initialize(student)
+     @student = student
+     puts "student"
+   end
 end   
 
 student = Student.new([name: "Morgan", age: 21])
