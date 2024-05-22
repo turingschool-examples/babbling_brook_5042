@@ -4,9 +4,7 @@ require 'spec_helper.rb'
 # # => true
 RSpec.describe Student do
   before(:each) do
-
     @student = Student.new({name: "Morgan", age: 21})
-
   end
   
   it "is an instance of the Student class" do
@@ -54,7 +52,7 @@ RSpec.describe Student do
     # pry(main)> student.log_score(89)
     @student.log_score(78)
     # pry(main)> student.log_score(78) 
-    
+
     expect(@student.grade).to eq(83.5)
 
     # pry(main)> student.grade # Average of all the scores
