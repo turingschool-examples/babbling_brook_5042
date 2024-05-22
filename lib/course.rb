@@ -8,9 +8,9 @@ class Course
     end
   
     def enroll(student)
-      @students << student if @students.size < @capacity
+      @students << student if @students.length < @capacity
     end
-  
+  #size method
     def full?
       @students.length >= @capacity
     end
