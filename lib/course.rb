@@ -7,6 +7,12 @@ class Course
     @students = []
   end
 
+  def full?
+    @students != []
+  end
 
-
+  def enroll(student)
+    @students << student
+  end
+  
 end
