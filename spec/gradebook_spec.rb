@@ -42,4 +42,22 @@ RSpec.describe Gradebook do
             expect(instructor.list_all_students(calculus)).to eq({Course: [student1, student2]})
         end
     end
+
+    describe 'students_below(threshold)' do
+        it 'lists students below threshold' do
+            instructor = Gradebook.new("Sally Teacher")
+            calculus = Course.new("Calculus", 2)
+            student1 = Student.new(name: 'Jacob', age: 22)
+            student2 = Student.new(name: 'John', age: 22)
+            student3 = Student.new(name: 'Jill', age: 22)
+            calculus.enroll(student1)
+            calculus.enroll(student2)
+            calculus.enroll(student3)
+            student1.logged_score(90)
+            student2.logged_score(60)
+            student3.logged_score(68)
+            #assuming threshold is 70 in this case....
+            expect(instructor.students_below(calculus, 70)).to eq([student2, student3])
+        end
+    end
 end

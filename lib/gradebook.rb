@@ -12,4 +12,10 @@ class Gradebook
     def list_all_students(course)
         {Course: course.students}
     end
+
+    def students_below(course, threshold)
+        course.students.select do |student|
+            student.grade < threshold
+        end
+    end
 end
