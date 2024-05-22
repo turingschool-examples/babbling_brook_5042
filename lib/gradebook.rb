@@ -19,16 +19,21 @@ class Gradebook
         end
     end
 
-    def all_grades(course)
-        grades = course.students.map do |student|
-            student.grade
+    def all_grades
+        grades = @courses.map do |student|
+            student.students.map do |student|
+                student.grade
+            end
         end
-        {Course: grades}
+        {Course: grades.flatten}
     end
 
-    def students_in_range(course, min, max)
-        course.students.select do |student|
-            student.grade >= min && student.grade <= max
+    def students_in_range(min, max)
+        grades = @courses.map do |course|
+            course.students.select do |student|
+                student.grade >= min && student.grade <= max
+            end
         end
+        grades.flatten
     end
 end

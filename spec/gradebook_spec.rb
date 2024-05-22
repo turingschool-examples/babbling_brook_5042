@@ -68,13 +68,14 @@ RSpec.describe Gradebook do
             student1 = Student.new(name: 'Jacob', age: 22)
             student2 = Student.new(name: 'John', age: 22)
             student3 = Student.new(name: 'Jill', age: 22)
+            instructor.add_course(calculus)
             calculus.enroll(student1)
             calculus.enroll(student2)
             calculus.enroll(student3)
             student1.logged_score(90)
             student2.logged_score(60)
             student3.logged_score(68)
-            expect(instructor.all_grades(calculus)).to eq({Course: [90, 60, 68]})
+            expect(instructor.all_grades).to eq({Course: [90, 60, 68]})
         end
     end
 
@@ -82,11 +83,16 @@ RSpec.describe Gradebook do
         it 'lists students in range' do
             instructor = Gradebook.new("Sally Teacher")
             calculus = Course.new("Calculus", 2)
+            biology = Course.new("Biology", 2)
             student1 = Student.new(name: 'Jacob', age: 22)
             student2 = Student.new(name: 'John', age: 22)
             student3 = Student.new(name: 'Jill', age: 22)
             student4 = Student.new(name: 'Jane', age: 22)
             student5 = Student.new(name: 'Jack', age: 22)
+            student6 = Student.new(name: 'Jenny', age: 22)
+            student7 = Student.new(name: 'Jesse', age: 22)
+            biology.enroll(student6)
+            biology.enroll(student7)
             calculus.enroll(student1)
             calculus.enroll(student2)
             calculus.enroll(student3)
@@ -97,7 +103,11 @@ RSpec.describe Gradebook do
             student3.logged_score(70)
             student4.logged_score(80)
             student5.logged_score(55)
-            expect(instructor.students_in_range(calculus, 70, 90)).to eq([student1, student3, student4])
+            student6.logged_score(90)
+            student7.logged_score(82)
+            instructor.add_course(calculus)
+            instructor.add_course(biology)
+            expect(instructor.students_in_range(70, 90)).to eq([student1, student3, student4, student6, student7])
         end
     end
 end
