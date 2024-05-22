@@ -1,10 +1,11 @@
 require './lib/student'
 
 class Student
-   def initialize(student)
-     @student = student
-     puts "student"
-   end
+    attr_reader(:name, :age, :scores)
+    def initialize(student)
+        @student = student
+        puts "student"
+    end
 end   
 
 student = Student.new([name: "Morgan", age: 21])
