@@ -1,4 +1,9 @@
 require './lib/student'
+
+def initialize(student)
+    @student = student
+end   
+
 student = Student.new([name: "Morgan", age: 21])
 student.name = "Morgan"
 student.age = 21
