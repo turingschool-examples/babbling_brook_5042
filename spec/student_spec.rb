@@ -25,6 +25,7 @@ RSpec.describe Student do
 
       expect(student.scores).to eq []
     end
+  end
 
   describe '#log_score' do
     it "can log scores" do
