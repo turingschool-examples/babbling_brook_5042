@@ -23,10 +23,10 @@ RSpec.describe Student do
     it "can have array of scores" do
       student = Student.new({name: "Morgan", age: 21})
 
-      expect(student.scores).to be []
+      expect(student.scores).to eq []
     end
 
-    
+
   end
 
 
