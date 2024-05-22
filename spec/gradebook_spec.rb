@@ -12,4 +12,13 @@ RSpec.describe Gradebook do
             expect(instructor.instructor).to eq("Sally Teacher")
         end
     end
+
+    describe 'add_course' do
+        it 'adds a course' do
+            instructor = Gradebook.new("Sally Teacher")
+            calculus = Course.new("Calculus", 2)
+            instructor.add_course(calculus)
+            expect(instructor.courses).to eq([calculus])
+        end
+    end
 end
