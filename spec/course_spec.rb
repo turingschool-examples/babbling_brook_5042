@@ -12,5 +12,10 @@ RSpec.describe Course do
             expect(course.class_name).to eq("Calculus")
             expect(course.capacity).to eq(2)
         end
+
+        it 'returns an empty array' do
+            course = Course.new("Calculus", 2)
+            expect(course.students).to eq([])
+        end
     end
 end
