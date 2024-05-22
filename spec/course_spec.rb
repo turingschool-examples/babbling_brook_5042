@@ -24,6 +24,22 @@ RSpec.describe Course do
             course = Course.new("Calculus", 2)
             expect(course.full?).to eq(false)
         end
+
+        it 'returns true if capacity is reached' do
+            course = Course.new("Calculus", 2)
+            student1 = Student.new(name: 'Jacob', age: 22)
+            student2 = Student.new(name: 'John', age: 22)
+            course.enroll(student1)
+            course.enroll(student2)
+            expect(course.full?).to eq(true)
+        end
+
+        it 'returns false if capacity is not reached' do
+            course = Course.new("Calculus", 2)
+            student1 = Student.new(name: 'Jacob', age: 22)
+            course.enroll(student1)
+            expect(course.full?).to eq(false)
+        end
     end
 
     describe 'enroll' do

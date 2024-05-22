@@ -7,7 +7,11 @@ class Course
     end
 
     def full?
-        false
+        if @students.length == @capacity
+            return true
+        else
+            return false
+        end 
     end
 
     def enroll(student)
