@@ -17,4 +17,16 @@ class GradeBook
     end
     course_student_hash
   end
+
+  def students_below(threshold)
+    course_student_hash = list_all_students
+    student_list = []
+    course_student_hash.each do |course, students|
+      students.each do |student|
+        student_list << student if student.grade < threshold
+      end
+    end
+    student_list.uniq
+  end
+
 end

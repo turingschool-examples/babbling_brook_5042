@@ -70,6 +70,31 @@ RSpec.describe GradeBook do
     end
   end
 
+  describe "#students_below" do
+    it "can list students below a given threshold" do
+      gradebook = GradeBook.new("Mr. Scrynt")
+      course1 = Course.new("Calculus", 2)
+      course2 = Course.new("Physics", 4)
+      student1 = Student.new({name: "Morgan", age: 21})
+      student2 = Student.new({name: "Jordan", age: 29})  
+
+      course1.enroll(student1)
+      course1.enroll(student2)
+      course2.enroll(student1)
+      course2.enroll(student2)
+      gradebook.add_course(course1)
+      gradebook.add_course(course2) 
+
+      student1.log_score(100)
+      student1.log_score(90)
+      student2.log_score(80)
+      student2.log_score(70)
+      
+      expect(gradebook.students_below(100)).to eq [student1, student2]
+      expect(gradebook.students_below(90)).to eq [student2]
+    end
+  end
+
   
 
 end
