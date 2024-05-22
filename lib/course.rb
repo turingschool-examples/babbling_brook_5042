@@ -9,4 +9,8 @@ class Course
     def full?
         false
     end
+
+    def enroll(student)
+        @students << student
+    end
 end

@@ -25,4 +25,15 @@ RSpec.describe Course do
             expect(course.full?).to eq(false)
         end
     end
+
+    describe 'enroll' do
+        it 'enrolls a student' do
+            student1 = Student.new(name: 'Jacob', age: 22)
+            student2 = Student.new(name: 'John', age: 22)
+            course = Course.new("Calculus", 2)
+            course.enroll(student1)
+            course.enroll(student2)
+            expect(course.students).to eq([student1, student2])
+        end
+    end
 end
