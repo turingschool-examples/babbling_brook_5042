@@ -8,9 +8,9 @@ RSpec.configure do |config|
     end
 
  describe Course do
-   it "is an instance of Course"  do
-      @course = Course.new("Calculus", 2) 
-      expect(@course).to be_a Course
+    it "is an instance of Course"  do
+       @course = Course.new("Calculus", 2) 
+       expect(@course).to be_a Course
     end
 
     it "has attributes" do
@@ -39,7 +39,4 @@ RSpec.configure do |config|
         expect(@course.enroll(student2)).to eq([student1, student2])
         expect(@course.full?).to eq(true)
     end
-
-    
-
  end   
