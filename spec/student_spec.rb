@@ -30,7 +30,19 @@ RSpec.describe Student do
             student.logged_score(90)
             student.logged_score(80)
             student.logged_score(70)
-            expect(student.scores).to eq([90, 80, 70])
+            student.logged_score(60.4)
+            expect(student.scores).to eq([90, 80, 70, 60.4])
+        end
+    end
+
+    describe 'grade' do
+        it 'Calculates grade' do
+            student = Student.new(name: 'Jacob', age: 22)
+            student.logged_score(90)
+            student.logged_score(80)
+            student.logged_score(70)
+            student.logged_score(60)
+            expect(student.grade).to eq(75)
         end
     end
 end

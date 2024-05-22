@@ -10,4 +10,9 @@ class Student
     def logged_score(score)
         @scores << score
     end
+
+    def grade
+        average = @scores.sum / @scores.length
+        return average
+    end
 end
