@@ -8,4 +8,8 @@ class Gradebook
     def add_course(course)
         @courses << course
     end
+
+    def list_all_students(course)
+        {Course: course.students}
+    end
 end
