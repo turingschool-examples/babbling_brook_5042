@@ -1,7 +1,8 @@
 class Student
   attr_reader :name,
               :age,
-              :scores
+              :scores,
+              :current_grade
 
   def initialize(student_info)
     @name = student_info[:name]
