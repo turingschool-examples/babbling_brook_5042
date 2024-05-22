@@ -1,6 +1,9 @@
 require './lib/course'
 require './lib/student'
 
+def initialize
+end    
+
 course = Course.new("Calculus", 2)
 course.name = "Calculus"
 course.capacity = 2
