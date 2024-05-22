@@ -1,7 +1,7 @@
 require "./lib/student"
 require "pry" 
 
-describe Student do
+RSpec.describe Student do
   let(:student) { Student.new(name: "Morgan", age: 21) }
 
 
