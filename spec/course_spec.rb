@@ -1,8 +1,13 @@
 require './lib/course'
 require './lib/student'
 
-def initialize
-end    
+class Course
+    attr_reader(:name, :capacity, :students)
+    def initialize(course)
+        @course = course
+        puts "course"
+    end
+end     
 
 course = Course.new("Calculus", 2)
 course.name = "Calculus"
