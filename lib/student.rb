@@ -14,6 +14,5 @@ class Student
   def grade
     (@scores.sum.to_f/@scores.length).round(1)
   end
-
-
+  
 end
