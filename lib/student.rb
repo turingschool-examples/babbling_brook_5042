@@ -14,7 +14,7 @@ class Student
   end
 
   def grade
-    # enumerable to add all elements of array together
+    # sum element int values 
     # -> divide by # of elements
     # return as float
     (@scores.sum.to_f / @scores.length)

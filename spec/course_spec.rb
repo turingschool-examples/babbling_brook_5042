@@ -52,9 +52,9 @@ RSpec.describe Course do
   end
 
   it "can enroll students into courses" do
-    course.enroll(@student1)
+    @course.enroll(@student1)
     # pry(main)> course.enroll(student1)    
-    course.enroll(@student2)
+    @course.enroll(@student2)
     # pry(main)> course.enroll(student2)    
     
     expect(@course.students).to eq([@student1, @student2])
@@ -67,9 +67,9 @@ RSpec.describe Course do
     # pry(main)> course.full?
     # # => false
     
-    course.enroll(@student1)
+    @course.enroll(@student1)
     # pry(main)> course.enroll(student1)    
-    course.enroll(@student2)
+    @course.enroll(@student2)
     # pry(main)> course.enroll(student2) 
 
     expect(@course.full?).to eq(true)
