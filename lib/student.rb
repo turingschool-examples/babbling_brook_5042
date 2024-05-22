@@ -15,11 +15,14 @@ class Student
     
     def log_score (score)
 
-        scores << score
+         scores << score
+
     end
 
     def grade 
+
         return 0 if scores.empty?
         scores.sum / scores.length
+        
     end
 end

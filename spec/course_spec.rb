@@ -8,14 +8,21 @@ RSpec.describe Course do
         @course = Course.new( "Calculus", 2)
     end
     
-    it "tests to see if the course is at capacity?" do
-        
-        expect(@course.full?).to eq(false)
+    describe "full?" do
+        it "tests to see if the course is at capacity?" do
+            
+            expect(@course.full?).to eq(false)
+        end
+
     end
 
-    it "adds a student to the course" do
-        expect(@course.enroll(@student1)).to eq(true)
-        expect(@course.enroll(@student2)).to eq(true)
+    describe "enroll" do
+
+        it "adds a student to the course" do
+            expect(@course.enroll(@student1)).to eq(true)
+            expect(@course.enroll(@student2)).to eq(true)
+        end
     end
+    
     
 end
